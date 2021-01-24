@@ -29,7 +29,7 @@ Or using the templating syntax:
 ```
 
 
-### Comparison with [MathJax](https://github.com/GitbookIO/plugin-mathjax)
+### Comparison with [MathJax](https://github.com/jeff-tian/plugin-mathjax)
 
 - Faster
 

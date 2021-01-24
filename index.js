@@ -1,35 +1,47 @@
-var katex = require("katex");
+const katex = require('katex')
 
 module.exports = {
-    book: {
-        assets: "./static",
-        js: [],
-        css: [
-            "katex.min.css"
-        ]
+  book: {
+    assets: './static',
+    js: [],
+    css: [
+      'katex.min.css',
+    ],
+  },
+  ebook: {
+    assets: './static',
+    css: [
+      'katex.min.css',
+    ],
+  },
+  blocks: {
+    math: {
+      shortcuts: {
+        parsers: ['markdown', 'asciidoc', 'restructuredtext'],
+        start: '$$',
+        end: '$$',
+      },
+      process: function(blk) {
+        const tex = blk.body
+        const isInline = !(tex[0] === '\n')
+        return katex.renderToString(tex, {
+          displayMode: !isInline,
+        })
+      },
     },
-    ebook: {
-        assets: "./static",
-        css: [
-            "katex.min.css"
-        ]
+    inlineMath: {
+      shortcuts: {
+        parsers: ['markdown', 'asciidoc', 'restructuredtext'],
+        start: '$',
+        end: '$',
+      },
+      process: function(blk) {
+        const tex = blk.body
+        const isInline = true
+        return katex.renderToString(tex, {
+          displayMode: !isInline,
+        })
+      },
     },
-    blocks: {
-        math: {
-            shortcuts: {
-                parsers: ["markdown", "asciidoc", "restructuredtext"],
-                start: "$$",
-                end: "$$"
-            },
-            process: function(blk) {
-                var tex = blk.body;
-                var isInline = !(tex[0] == "\n");
-                var output = katex.renderToString(tex, {
-                    displayMode: !isInline
-                });
-
-                return output;
-            }
-        }
-    }
-};
+  },
+}
