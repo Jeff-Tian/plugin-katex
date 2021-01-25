@@ -32,8 +32,8 @@ module.exports = {
     inlineMath: {
       shortcuts: {
         parsers: ['markdown', 'asciidoc', 'restructuredtext'],
-        start: '$',
-        end: '$',
+        start: '$|',
+        end: '|$',
       },
       process: function(blk) {
         const tex = blk.body
