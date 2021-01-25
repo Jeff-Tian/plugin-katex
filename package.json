@@ -5,7 +5,7 @@
   },
   "description": "Math typesetting using KaTex into GitBook",
   "main": "index.js",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "engines": {
     "gitbook": ">=2.0.0"
   },
@@ -22,7 +22,7 @@
     "url": "https://github.com/jeff-tian/plugin-katex/issues"
   },
   "dependencies": {
-    "katex": "0.12.0"
+    "katex": "0.7.1"
   },
   "keywords": [
     "math",
